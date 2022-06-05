@@ -2,8 +2,7 @@
 //  PhotoListTableViewCell.swift
 //  MVVMPlayground
 //
-//  Created by Yahya Saddiq on 10/1/19.
-//  Copyright © 2019 ST.Huang. All rights reserved.
+//  Created by Mohamed Ezzat on 6/3/22.
 //
 
 import Foundation
@@ -11,8 +10,6 @@ import UIKit
 
 class PhotoListTableViewCell: UITableViewCell {
     @IBOutlet weak var mainImageView: UIImageView!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descContainerHeightConstraint: NSLayoutConstraint!
     var photoListCellViewModel : PhotoListCellViewModel? {

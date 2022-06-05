@@ -2,8 +2,7 @@
 //  PhotoListViewModel.swift
 //  MVVMPlayground
 //
-//  Created by Neo on 03/10/2017.
-//  Copyright © 2017 ST.Huang. All rights reserved.
+//  Created by Mohamed Ezzat on 6/3/22.
 //
 
 import Foundation
@@ -72,24 +71,11 @@ class PhotoListViewModel {
     }
     
     func createCellViewModel( photo: Photo ) -> PhotoListCellViewModel {
-
-        //Wrap a description
-        var descTextContainer: [String] = [String]()
-        if let camera = photo.camera {
-            descTextContainer.append(camera)
-        }
-        if let description = photo.description {
-            descTextContainer.append( description )
-        }
-        let desc = descTextContainer.joined(separator: " - ")
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        return PhotoListCellViewModel( titleText: photo.name,
-                                       descText: desc,
-                                       imageUrl: photo.image_url,
-                                       dateText: dateFormatter.string(from: photo.created_at) )
+        return PhotoListCellViewModel( titleText: photo.title, imageUrl: photo.url )
     }
     
     private func processFetchedPhoto( photos: [Photo] ) {
@@ -106,14 +92,9 @@ class PhotoListViewModel {
 extension PhotoListViewModel {
     func userPressed( at indexPath: IndexPath ){
         let photo = self.photos[indexPath.row]
-        if photo.for_sale {
             self.isAllowSegue = true
             self.selectedPhoto = photo
-        }else {
-            self.isAllowSegue = false
-            self.selectedPhoto = nil
-            self.alertMessage = "This item is not for sale"
-        }
+        
         
     }
 }

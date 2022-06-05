@@ -2,15 +2,14 @@
 //  PhotoListCellViewModel.swift
 //  MVVMPlayground
 //
-//  Created by Yahya Saddiq on 10/31/19.
-//  Copyright © 2019 ST.Huang. All rights reserved.
+//  Created by Mohamed Ezzat on 6/3/22.
 //
 
 import Foundation
 
 struct PhotoListCellViewModel {
     let titleText: String
-    let descText: String
+//    let descText: String
     let imageUrl: String
-    let dateText: String
+//    let dateText: String
 }

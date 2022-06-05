@@ -2,10 +2,8 @@
 //  APIService.swift
 //  MVVMPlayground
 //
-//  Created by Neo on 01/10/2017.
-//  Copyright © 2017 ST.Huang. All rights reserved.
+//  Created by Mohamed Ezzat on 6/3/22.
 //
-
 import Foundation
 import Alamofire
 
@@ -20,7 +18,6 @@ protocol APIServiceProtocol {
 }
 
 class APIService: APIServiceProtocol {
-    // Simulate a long waiting for fetching 
     func fetchPopularPhoto( complete: @escaping ( _ success: Bool, _ photos: [Photo], _ error: APIError?)->()) {
         DispatchQueue.global().async {
             sleep(3)
@@ -29,19 +26,12 @@ class APIService: APIServiceProtocol {
                 let decoder = JSONDecoder()
                 do{
                     let photos = try decoder.decode([Photo].self, from: res.data!)
-                    print(photos, "rwrwqR")
+                    complete(true, photos, nil)
                 }catch{
-                    print(res, "reeeewrwqR")
+                    print(res.error?.localizedDescription)
                 }
                 
             }
-            
-//            let path = Bundle.main.path(forResource: "content", ofType: "json")!
-//            let data = try! Data(contentsOf: URL(fileURLWithPath: path))
-//            let decoder = JSONDecoder()
-//            decoder.dateDecodingStrategy = .iso8601
-//            let photos = try! decoder.decode(Photos.self, from: data)
-//            complete(true, photos.photos, nil)
         }
     }
 }

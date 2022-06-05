@@ -2,8 +2,7 @@
 //  PhotoListViewController.swift
 //  MVVMPlayground
 //
-//  Created by Neo on 01/10/2017.
-//  Copyright © 2017 ST.Huang. All rights reserved.
+//  Created by Mohamed Ezzat on 6/3/22.
 //
 
 import UIKit
